@@ -1,0 +1,55 @@
+﻿.app {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas:
+        "appNav appHeader"
+        "appNav appMain";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    background-color:
+}
+
+.appNav {
+    position: relative;
+    grid-area: appNav;
+    background-color: var(--mantine-color-body);
+    border-right: 1px solid var(--mantine-color-default-border);
+    width: 150px;
+    transition: 250ms ease-in-out;
+}
+
+.appNav .appNavTitle {
+}
+
+.appNav .appNavMenu {
+
+}
+
+.appNav .appNavMenu .appMenuList {
+    flex: 1;
+}
+
+.appNav.collapsed {
+    width: 50px;
+}
+
+.appHeader {
+    grid-area: appHeader;
+    background-color: var(--mantine-color-body);
+    border-bottom: 1px solid var(--mantine-color-default-border);
+    height: 56px;
+}
+
+.appMain {
+    grid-area: appMain;
+}
+
+
+.navToggleButton {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
