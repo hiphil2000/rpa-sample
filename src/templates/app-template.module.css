@@ -8,7 +8,7 @@
         "appNav appMain";
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
-    background-color:
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8));
 }
 
 .appNav {

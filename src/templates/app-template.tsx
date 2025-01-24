@@ -30,7 +30,7 @@ export default function AppTemplate({
                 </Group>
             </Box>
             <Box className={clsx(classes.appNav, opened ? "" : classes.collapsed)}>
-                <Stack className={classes.appNavMenu} h="100%">
+                <Stack className={classes.appNavMenu} h="100%" gap="0">
                     <Box className={classes.appNavTitle} py="sm" h="56">
                         <Title order={3} style={{textAlign: "center"}}>RPA App</Title>
                     </Box>
@@ -50,7 +50,7 @@ export default function AppTemplate({
                 </div>
             </Box>
             <div className={classes.appMain}>
-                <Container fluid>
+                <Container fluid p={0}>
                    {children}
                 </Container>
             </div>

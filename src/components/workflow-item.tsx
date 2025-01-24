@@ -1,6 +1,5 @@
-﻿import React from "react";
-import dayjs from "dayjs";
-import {Group, Paper} from "@mantine/core";
+﻿import dayjs from "dayjs";
+import {Group, Paper, Stack, Text} from "@mantine/core";
 import {Link} from "react-router-dom";
 
 type WorkflowItemProps = {
@@ -14,10 +13,11 @@ export default function WorkflowItem({
 }: WorkflowItemProps) {
     return (
         <Paper radius="lg" shadow="md" px="md">
-            <Group>
-                <Link to={`/workflow/${name}`}>{name}</Link>
-                <p>Created: {dayjs(createdDate).format("YYYY-MM-DD HH:mm:ss")}</p>
-                <p>Modified: {dayjs(modifiedDate).format("YYYY-MM-DD HH:mm:ss")}</p>
+            <Group p="md">
+                <Stack gap="xs">
+                    <Link to={`/workflow/${name}`}>{name}</Link>
+                    <Text size="xs">Modified: {dayjs(modifiedDate).format("YYYY-MM-DD HH:mm:ss")} Created: {dayjs(createdDate).format("YYYY-MM-DD HH:mm:ss")}</Text>
+                </Stack>
             </Group>
         </Paper>
     )
