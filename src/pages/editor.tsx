@@ -14,6 +14,7 @@ import {useParams} from "react-router-dom";
 import {useColorScheme} from "@mantine/hooks";
 import {useCallback, useState} from "react";
 import {nodeTypes} from "../libs/workflow/nodes";
+import {Title} from "@mantine/core";
 
 const initialNodes = [
     {
@@ -49,7 +50,7 @@ export default function Editor() {
     );
 
     return (
-        <AppTemplate header={<h3>{id}</h3>}>
+        <AppTemplate header={<Title order={3}>{id}</Title>}>
             <div style={{width: '800px', height: '800px'}}>
                 <ReactFlow colorMode={colorScheme}
                            panOnDrag={[1, 2]}

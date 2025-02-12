@@ -1,4 +1,68 @@
 ﻿.app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    background-color: var(--mantine-color-body);
+}
+
+.app .menu-section {
+    position: relative;
+    width: 150px;
+    border-right: 1px solid var(--mantine-color-default-border);
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-8));
+    transition: width 250ms ease-in-out;
+}
+
+.app .menu-section .menu-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.app .menu-section.collapsed {
+    width: 50px;
+}
+
+.app .menu-section.collapsed .menu-toggle {
+    right: -24px;
+}
+
+.app .menu-section .logo-area {
+    height: 52px;
+    border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.app .menu-section .user-area {
+    /*border-bottom: 1px solid var(--mantine-color-default-border);*/
+}
+
+.app .menu-section .gnb-area {
+    flex: 1;
+}
+
+.app .menu-section .footer-area {
+    min-height: 52px;
+    border-top: 1px solid var(--mantine-color-default-border);
+}
+
+.app .main-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.app .main-section .header-area {
+    display: flex;
+    height: 52px;
+}
+
+
+
+
+/*
+.app {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -53,3 +117,4 @@
     top: 50%;
     transform: translate(50%, -50%);
 }
+ */
