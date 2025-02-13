@@ -5,7 +5,7 @@ interface ILogoProps {
 }
 
 export default function Logo({collapsed}: ILogoProps) {
-    if (collapsed) {
+    if (collapsed === true) {
         return (
             <Title order={3}>RPA</Title>
         )

@@ -1,18 +1,30 @@
 ﻿import React from "react";
-import {IconFilePencil, IconHome} from "@tabler/icons-react";
+import {IconHome} from "@tabler/icons-react";
 import {NavLink} from "@mantine/core";
-import {NavLink as RouterNavLink} from "react-router-dom";
+import {NavLink as RouterNavLink, useLocation} from "react-router-dom";
 
 type NavItem = {
     href: string;
     icon: React.FC;
     label: string;
+    allowFavorite?: boolean;
+    favorite?: boolean;
 }
 
-const navData: NavItem[] = [
-    { href: "/", icon: IconHome, label: "Home" },
+export const navData: NavItem[] = [
+    { href: "/", icon: IconHome, label: "Home", allowFavorite: true },
     // { href: "/editor", icon: IconFilePencil, label: "Editor" }
 ]
+
+/**
+ * 현재 라우팅 위치의 NavData를 가져옵니다.
+ * @returns {NavItem | undefined}
+ */
+export function useNavData(): NavItem | undefined {
+    const location = useLocation();
+
+    return navData.find((item) => item.href === location.pathname);
+}
 
 export default function AppNavigation() {
     const items = navData.map((item) => (

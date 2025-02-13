@@ -7,7 +7,7 @@ export default function Home() {
     const [workflows] = useWorkflows();
 
     return (
-        <AppTemplate>
+        <AppTemplate header={"Home"}>
             <Stack gap="md" p="md">
                 {workflows.map((workflow) => {
                     const {id, name, createdDate, modifiedDate} = workflow;

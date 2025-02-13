@@ -1,11 +1,12 @@
 ﻿import React from "react";
-import {ActionIcon, Container, Group, Stack, Box, Title, NavLink, Center, Text, ScrollArea} from "@mantine/core";
+import {ActionIcon, Stack, Box, Center, Text, ScrollArea, Title, Group} from "@mantine/core";
 import {useDisclosure} from "@mantine/hooks";
-import AppNavigation from "../libs/router/app-navigation.tsx";
+import AppNavigation, {useNavData} from "../libs/router/app-navigation.tsx";
 import {IconChevronLeft, IconChevronRight} from "@tabler/icons-react";
 import clsx from "clsx";
 import classes from "./app-template.module.css"
-import {ColorSchemeButton, Logo} from "../components";
+import {Logo} from "../components";
+import FavoriteButton from "../components/favorite-button.tsx";
 
 type AppTemplateProps = {
     header?: React.ReactNode;
@@ -16,6 +17,7 @@ type AppTemplateProps = {
 export default function AppTemplate({
     header, children, initialCollapsed = true
 }: AppTemplateProps) {
+    const navItem = useNavData();
     const [opened, {toggle}] = useDisclosure(initialCollapsed);
     const toggleIcon = opened ? <IconChevronLeft/> : <IconChevronRight/>;
 
@@ -42,7 +44,12 @@ export default function AppTemplate({
             </Stack>
             <Stack className={classes["main-section"]} gap={0}>
                 <Box className={classes["header-area"]} p="xs">
-                    {header}
+                    <Group>
+                        <Title order={3}>{header}</Title>
+                        {navItem?.allowFavorite === true && (
+                            <FavoriteButton favorite={Boolean(navItem.favorite)} />
+                        )}
+                    </Group>
                 </Box>
                 <div className={classes["lnb-area"]}></div>
                 <div className={classes["content-area"]}>
